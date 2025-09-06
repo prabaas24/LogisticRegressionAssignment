@@ -60,6 +60,7 @@ matplotlib.use("Agg")   # must come before pyplot/seaborn imports
 
 
 import matplotlib.pyplot as plt
+import streamlit as st
 import seaborn as sns
 import numpy as np
 from sklearn.model_selection import train_test_split
