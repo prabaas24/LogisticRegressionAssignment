@@ -1,7 +1,8 @@
+streamlit
 matplotlib
 numpy
 pandas
 scikit-learn
 scipy
 seaborn
-streamlit
+

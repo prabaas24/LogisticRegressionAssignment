@@ -55,6 +55,8 @@ correlation_matrix
 
 
 # In[14]:
+import matplotlib
+matplotlib.use("Agg")   # must come before pyplot/seaborn imports
 
 
 import matplotlib.pyplot as plt
@@ -64,10 +66,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix, roc_curve, roc_auc_score
-plt.figure(figsize=(14,12))
-sns.heatmap(correlation_matrix,annot=True,cmap='coolwarm')
-plt.title('correlationmap')
-plt.show()
+fig, ax = plt.subplots(figsize=(14, 12))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', ax=ax)
+ax.set_title('correlationmap')
+st.pyplot(fig)
 
 
 # In[15]:
