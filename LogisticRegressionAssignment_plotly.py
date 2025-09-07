@@ -124,7 +124,8 @@ fig.show()
 df_encoded['individual_fare'] = df_encoded['Fare']/(df_encoded['SibSp'] + df_encoded['Parch'] + 1)
 df_encoded
 
-df_encoded['individual_fare'].plot(kind='box')
+fig = px.box(df_encoded, y="individual_fare", points="outliers")
+fig.show()
 
 from scipy import stats
 import numpy as np
@@ -207,7 +208,8 @@ df1_encoded['Age'] = df1_encoded['Age'].clip(lower=lower_limit, upper=upper_limi
 x1=df1_encoded
 print(x1)
 
-df1_encoded['Fare'].plot(kind='box')
+fig = px.box(df1_encoded, y="Fare", points="outliers")
+fig.show()
 
 
 num_cols1 = ['Pclass', 'Age', 'Fare', 'Family size']
@@ -229,7 +231,8 @@ print(x1)
 x1['individual_fare'] = df1_encoded['Fare']/(df1_encoded['SibSp'] + df1_encoded['Parch'] + 1)
 x1
 
-x1['individual_fare'].plot(kind='box')
+fig = px.box(x1, y="individual_fare", points="outliers")
+fig.show()
 
 from scipy import stats
 import numpy as np
@@ -253,5 +256,3 @@ y_pred_log = logr.predict(x_test)
 from sklearn.metrics import classification_report, accuracy_score
 print("Accuracy:", accuracy_score(y_test, y_pred_log))
 print(classification_report(y_test, y_pred_log, zero_division=0))
-
-
