@@ -1,4 +1,3 @@
-import plt_compat as plt
 import pandas as pd
 
 df = pd.read_csv('Titanic_train.csv')
