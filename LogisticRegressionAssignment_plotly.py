@@ -19,7 +19,6 @@ df_encoded
 correlation_matrix = df_encoded.corr()
 correlation_matrix
 
-import seaborn as sns
 import numpy as np
 import plotly.express as px
 from sklearn.model_selection import train_test_split
@@ -85,7 +84,12 @@ for i in range(len(df)):
 fig = px.box(df,x="Survived",y="Age",color="Survived",color_discrete_sequence=px.colors.qualitative.Pastel)
 fig.update_layout(title="Age distribution by Survival status",xaxis_title="Survival (0 = Not Survived, 1 = Survived)",yaxis_title="Age",width=1000,height=500)
 
-sns.heatmap(pd.crosstab(df['Survived'], df['Pclass'], normalize='columns') * 100)
+crosstab = pd.crosstab(df['Survived'], df['Pclass'], normalize='columns') * 100
+
+# Plot as heatmap
+fig = px.imshow(crosstab,text_auto=".1f", color_continuous_scale="Blues", aspect="auto")
+fig.update_layout(title="Survival % by Passenger Class",xaxis_title="Pclass",yaxis_title="Survived",width=800,height=500)
+fig.show()
 
 df_encoded['Family size'] = df['SibSp'] + df['Parch'] + 1
 df_encoded['Family size'].value_counts()
