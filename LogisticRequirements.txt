@@ -1,5 +1,6 @@
 streamlit
-matplotlib
+plotly
+kaleido
 numpy
 pandas
 scikit-learn
