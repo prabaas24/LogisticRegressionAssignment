@@ -118,8 +118,9 @@ fig = px.pie(names=counts.index,values=counts.values,color_discrete_sequence=px.
 fig.update_layout(title="Passenger count by Embarked port",width=800,height=500)
 fig.show()
 
-df_encoded['Fare'].plot(kind='box')
-
+fig = px.box(df_encoded, y="Fare", points="outliers") 
+fig.update_layout(title="Fare distribution (boxplot)",yaxis_title="Fare",width=800,height=500)
+fig.show()
 df_encoded['individual_fare'] = df_encoded['Fare']/(df_encoded['SibSp'] + df_encoded['Parch'] + 1)
 df_encoded
 
