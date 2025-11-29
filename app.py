@@ -1,8 +1,11 @@
 import streamlit as st
 import pickle
 import numpy as np
+import pathlib
 
-logr = pickle.load(open("logistic_model.pkl", "rb"))
+# Safe model path for Streamlit Cloud + local
+MODEL_PATH = pathlib.Path(__file__).parent / "logistic_model.pkl"
+logr = pickle.load(open(MODEL_PATH, "rb"))
 
 st.title("Titanic Survival Prediction")
 st.write("Enter passenger details to predict survival.")
