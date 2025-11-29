@@ -4,7 +4,7 @@ import numpy as np
 import pathlib
 
 # Safe model path for Streamlit Cloud + local
-MODEL_PATH = pathlib.Path(__file__).parent / "logistic_model.pkl"
+MODEL_PATH = pathlib.Path(__file__).parent / "model.pkl"
 logr = pickle.load(open(MODEL_PATH, "rb"))
 
 st.title("Titanic Survival Prediction")
